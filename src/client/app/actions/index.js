@@ -5,3 +5,11 @@ export const selectUser = (user)=>{
 		payload: user
 	}
 }
+
+
+export const tryMM = function(text){
+	return {
+		type: "TEXT_ADDED",
+		payload: text
+	}
+}

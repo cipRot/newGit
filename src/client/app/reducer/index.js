@@ -11,7 +11,18 @@ const userSelected = (state = null , action) => {
             return state;
     }
 }
- 
+
+const someText = (state= null, action)=>{
+    switch (action.type) {
+        case "TEXT_ADDED":
+            console.log(action.payload);
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({ 
-	userSelected
+	userSelected,
+    someText
 });
