@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import reducer from './reducer'; 
 
+import "./css/main.less";
+
 const store = createStore(reducer, compose(
 	applyMiddleware(thunk))
 ); 

@@ -27,6 +27,20 @@ var config = {
             {
               presets:['react']
           }
+      },
+      {
+          test: /\.less$/,
+          use: [{
+              loader: "style-loader"
+          }, {
+              loader: "css-loader", options: {
+                  sourceMap: true
+              }
+          }, {
+              loader: "less-loader", options: {
+                  sourceMap: true
+              }
+          }]
       }
     ]
   },
