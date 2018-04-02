@@ -29,23 +29,30 @@ class AwesomeComponent extends React.Component {
   }
   render() {
     return (
-      <div>
-        <div>
-          Likes : <span>{this.state.likesCount}</span>
-          <div>
-          <button onClick={this.onLike}>Like Me</button>
+      <div className="app"> 
+          <div id="header">
+           <div id="logo"></div>
+           <div id="rest-header"></div> 
           </div>
-        </div>
-        <div>
-            user is : {this.props.userSelected}
-        </div>
-        <button onClick={()=> this.props.selectUser('cip')}>Change user</button>
-        <div>
-            some text is : {this.props.someText}
-        </div>
-        <input type="text" onChange={this.changeText } />
-        <button onClick={()=> this.props.tryMM(this.state.randomMessage)}>Change user</button>
-      </div>  
+          <div id="sidebar"></div>
+          <div id="main">
+            <div id="main1">
+              <h3>TRENDING</h3>
+              <div></div>
+            </div>
+            <div id="main2">
+                <div className="sub1">Main2</div>
+                <div className="sub2">Main2</div>
+                <div className="sub3">Main3</div>
+            </div>
+            <div id="call-to-action">
+
+            </div>
+             <div id="footer">
+               Copyright 2001-2018 Accenture. All rights reserved. Accenture Confidential. For internal use only.  Terms of Use |  Privacy Statement
+             </div>
+          </div> 
+      </div>   
     );
   }
 }
