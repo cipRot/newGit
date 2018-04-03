@@ -2,6 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {selectUser, tryMM} from './actions/index.js';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.less';
  
 
 class AwesomeComponent extends React.Component {
@@ -10,10 +14,12 @@ class AwesomeComponent extends React.Component {
     super(props);
     this.state = {
       likesCount : 0,
-      randomMessage: null
+      randomMessage: null,
+      selectedOption: '',
     };
     this.onLike = this.onLike.bind(this);
     this.changeText = this.changeText.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     console.log(this.props, this.state);
   }
 
@@ -27,32 +33,65 @@ class AwesomeComponent extends React.Component {
       randomMessage: ev.target.value
     })
   }
-  render() {
-    return (
-      <div className="app"> 
-          <div id="header">
-           <div id="logo"></div>
-           <div id="rest-header"></div> 
-          </div>
-          <div id="sidebar"></div>
-          <div id="main">
-            <div id="main1">
-              <h3>TRENDING</h3>
-              <div></div>
-            </div>
-            <div id="main2">
-                <div className="sub1">Main2</div>
-                <div className="sub2">Main2</div>
-                <div className="sub3">Main3</div>
-            </div>
-            <div id="call-to-action">
+ 
+ 
+  handleChange(selectedOption) {
+    this.setState({ selectedOption });
+    console.log(selectedOption ?  selectedOption.label : "No value");
+  }
 
+  render() {
+    const { selectedOption } = this.state;
+    const value = selectedOption && selectedOption.value; 
+    return (
+        <div className="app"> 
+            <div id="header">
+                <div id="logo"></div>
+                <div id="rest-header"></div> 
             </div>
-             <div id="footer">
-               Copyright 2001-2018 Accenture. All rights reserved. Accenture Confidential. For internal use only.  Terms of Use |  Privacy Statement
-             </div>
-          </div> 
-      </div>   
+            <div id="sidebar"></div>
+            <div id="main">
+                <div id="main1">
+                    <h3>TRENDING</h3>
+                    <div>
+                        <Select
+                            name="form-field-name"
+                            value={value}
+                            onChange={this.handleChange}
+                            options={[
+                                { value: 'one', label: 'One' },
+                                { value: 'two', label: 'Two' },
+                            ]}
+                        />
+                    </div>
+                </div>
+                <div id="main2">
+                    <div className="sub1">
+                        <Tabs>
+                            <TabList>
+                              <Tab>Title 1</Tab>
+                              <Tab>Title 2</Tab>
+                            </TabList>
+
+                            <TabPanel>
+                              <h2>Any content 1</h2>
+                            </TabPanel>
+                            <TabPanel>
+                              <h2>Any content 2</h2>
+                            </TabPanel>
+                        </Tabs>
+                    </div>
+                    <div className="sub2">Main2</div>
+                    <div className="sub3">Main3</div>
+                </div>
+                <div id="call-to-action">
+
+                </div>
+                <div id="footer">
+                   ttes
+                </div>
+            </div> 
+        </div>   
     );
   }
 }

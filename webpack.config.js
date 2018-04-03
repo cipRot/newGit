@@ -41,6 +41,10 @@ var config = {
                   sourceMap: true
               }
           }]
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   },
