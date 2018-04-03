@@ -45,12 +45,13 @@ class AwesomeComponent extends React.Component {
     const value = selectedOption && selectedOption.value; 
     return (
         <div className="app"> 
-            <div id="header">
+             
+            <header id="header">
                 <div id="logo"></div>
                 <div id="rest-header"></div> 
-            </div>
-            <div id="sidebar"></div>
-            <div id="main">
+            </header>
+            <aside id="sidebar"></aside>
+            <content id="main">
                 <div id="main1">
                     <h3>TRENDING</h3>
                     <div>
@@ -84,13 +85,12 @@ class AwesomeComponent extends React.Component {
                     <div className="sub2">Main2</div>
                     <div className="sub3">Main3</div>
                 </div>
-                <div id="call-to-action">
-
+                <div id="call-to-action"> 
                 </div>
-                <div id="footer">
+                <footer id="footer">
                    ttes
-                </div>
-            </div> 
+                </footer>
+            </content> 
         </div>   
     );
   }
